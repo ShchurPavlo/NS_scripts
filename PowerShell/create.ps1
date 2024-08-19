@@ -38,6 +38,10 @@ try {
 		 Write-Host "Error adding '$($user.login)' to standart group  "
 	}
 	
+	if ($user.group -eq '-'){
+		continue
+	}
+	
 	try {
 		if (Get-LocalGroup -Name $user.group -ErrorAction SilentlyContinue){
 		Add-LocalGroupMember -Group $user.group -Member $user.login -ErrorAction Stop
