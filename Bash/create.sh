@@ -1,6 +1,11 @@
 #!/bin/bash
+if [ -z "$1" ]; then
+    echo "Usage: $0 <input_file>"
+    exit 1
+fi
 
-input_file="users.csv"
+# Assign the first argument to the input_file variable
+input_file="$1"
 
 get_users_in_group() {
     local group="$1"
